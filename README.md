@@ -6,5 +6,6 @@ This project is inspired in https://github.com/chess-fu/chess-modules/tree/maste
 
 # Package Status
 
-Test status, plis don't use this package for your producction projects.
+Test status, please don't use this package for your producction projects.
 
+I'm developing mode :) for this package 'Cause I need use this for my other mobile project (chess_players)
