@@ -3,6 +3,7 @@ version: 0.0.0
 description: Pgn parser
 author: Alexis Vargas <lexisvar@gmail.com>
 homepage: https://github.com/lexisvar/pgn-parser.dart
-dependencies:
-  test: ^1.12.0
 dev_dependencies:
+  test: ^1.12.0 
+environment:
+  sdk: '>=2.0.0 <3.0.0'
