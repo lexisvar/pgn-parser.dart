@@ -304,7 +304,8 @@ class PgnDataCursor {
 
     List result = [];
     dynamic next = this.read();
-    while (next != EOF && next != '"') {
+    while (next != EOF && !this.isLastQuote()) {
+      
       if (next == '\\') {
         String escaped = this.peek();
         if (escaped == '\\' || escaped == '"') {
@@ -326,6 +327,10 @@ class PgnDataCursor {
     }
 
     return result.join('');
+  }
+
+  bool isLastQuote(){
+    return (this._data[this._offset]==']');
   }
 
   skipCommentsFrom(List<String>comments) {
