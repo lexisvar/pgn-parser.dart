@@ -20,7 +20,8 @@ void main() {
 
   test('parses multiple games', () {
     PgnParser parser = new PgnParser();
-    String pgn = DataSet.multiple_games;    
+    String pgn = DataSet.multiple_games; 
+    dynamic result = parser.parse(pgn); 
     expect(parser.parse(pgn), TypeMatcher<List>());
   });
 
