@@ -177,7 +177,7 @@ class PgnParser {
         // Recursive parser
         this._parseMoves(cursor, ravHistory, (depth + 1));
         dynamic prevMove = history.length > 0 ? history[history.length - 1] : null;
-        if (prevMove!=null && !prevMove.rav!=null) {
+        if (prevMove!=null && prevMove.rav==null) {
           prevMove.rav = ravHistory;
         }
         else {          
