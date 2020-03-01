@@ -221,6 +221,10 @@ class PgnParser {
       dynamic temp;
 
       if (token == PgnTokenType.Newline) {
+        if(move.number!=null){
+          cursor.read();
+          continue;
+        }
         break;
       }
       else if (letter.compareTo('0') >= 0 && letter.compareTo('9') <= 0) {
@@ -256,6 +260,7 @@ class PgnParser {
         // move text, a4 or Rxc7! etc. ... a-h, x, prnbqk, o, 0-8, +, #, [?!]{1,2}, =, -, $0-255, 
         MoveHistory data = cursor.readMoveText();
         if (data!=null) {
+          data.number = (move.number!=null) ? move.number : data.number;
           move = data;
           break;
         }

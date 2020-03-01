@@ -58,7 +58,16 @@ class PgnGame {
    * @returns {MoveHistory[]} Returns filtered set from history.
    */
   List<MoveHistory> moves() {
-    return this.history.where((m) => m.san!=null);
+    return this.history.where((m) => m.san!=null).toList();
+  }
+
+  String pgn(){
+    String pgn='';
+    for (var move in history) {
+      dynamic number = (move.number!=null) ? move.number.toString()+'.' : '';
+      pgn +=(move.result!=null) ? move.result: "$number"+move.raw+" ";
+    }
+    return pgn;
   }
 
 }
