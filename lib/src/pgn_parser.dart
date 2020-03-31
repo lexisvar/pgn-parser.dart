@@ -46,7 +46,9 @@ class PgnParser {
 
     while (!cursor.isEOF()) {
       if (lastPos == cursor.position()) {
-        return cursor.throwError('No progress made'); // safety check
+        cursor.read();
+        continue;
+        //return cursor.throwError('No progress made'); // safety check
       }
       lastPos = cursor.position();
 
@@ -58,11 +60,12 @@ class PgnParser {
       try {
         this._parseHeaders(cursor, game.headers);
         this._parseMoves(cursor, game.history);
-      }
-      finally {
         if (game!=null && game.headers!=null && (game.headers.length>0 || game.history.length>0)) {
           games.add(game);
         }
+      }catch(e){
+        print(e);
+        continue;
       }
     }
     return games;

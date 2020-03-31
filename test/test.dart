@@ -12,16 +12,42 @@ void main() {
     expect(parser.parse(pgn), TypeMatcher<List>());
   });*/
 
-  test('parses full game', () {
+/* test('parses full game', () {
     PgnParser parser = new PgnParser();
-    String pgn = DataSet.full_game;
+    String pgn = DataSet.fullGame;
     expect(parser.parse(pgn), TypeMatcher<List>());
-  });  
+  }); */
 
-  test('parses multiple games', () {
+ /*test('parses full game with comment errors', () {
     PgnParser parser = new PgnParser();
-    String pgn = DataSet.multiple_games; 
-    dynamic result = parser.parse(pgn); 
+    String pgn = DataSet.badComments;
+    expect(parser.parse(pgn), TypeMatcher<List>());
+  });  */
+
+ /* test('headers and moves', () {
+    PgnParser parser = new PgnParser();
+    String pgn = DataSet.fullGame;
+    dynamic games = parser.parse(pgn);
+
+    for (dynamic game in games) {
+      dynamic game_moves = game.pgn();
+      print("dd");
+    }
+
+    expect(parser.parse(pgn), TypeMatcher<List>());
+  });*/
+
+  /*test('parses multiple games', () {
+    PgnParser parser = new PgnParser();
+    String pgn = DataSet.gamesWithErrors; 
+    dynamic result = parser.parse(pgn);
+    expect(parser.parse(pgn), TypeMatcher<List>());
+  });*/
+
+ test('parses multiple henry games', () {
+    PgnParser parser = new PgnParser();
+    String pgn = DataSet.henryGames; 
+    dynamic result = parser.parse(pgn);
     expect(parser.parse(pgn), TypeMatcher<List>());
   });
 
